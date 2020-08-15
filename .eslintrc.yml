@@ -1,0 +1,10 @@
+---
+env:
+  jest: true
+  browser: true
+extends:
+  - 'airbnb-base'
+  - plugin:jest/recommended
+
+rules:
+  import/extensions: 0
