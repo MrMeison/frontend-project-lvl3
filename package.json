@@ -6,7 +6,7 @@
     "start": "webpack-dev-server",
     "build": "webpack",
     "test": "jest",
-    "lint": "eslint"
+    "lint": "eslint ."
   },
   "author": "Konstantin Mamaev",
   "license": "MIT",

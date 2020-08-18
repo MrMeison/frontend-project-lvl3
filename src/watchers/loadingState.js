@@ -7,7 +7,6 @@ const toggleInputState = (input, disabled) => {
   } else {
     input.removeAttribute('readonly');
   }
-  
 };
 
 const handleLoadingState = (state, formElements) => {

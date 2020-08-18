@@ -32,7 +32,7 @@ const validateUrl = (url, feeds) => {
 const loadRss = (watchedState, url) => {
   watchedState.loadingState = {
     error: null,
-    status: 'loading'
+    status: 'loading',
   };
 
   return axios.get(getFeedUrl(url), { timeout: responseTimeout })
@@ -63,23 +63,24 @@ const loadRss = (watchedState, url) => {
 };
 
 const checkNewPosts = (watchedState) => {
-  const promises = watchedState.feeds.map((feed) => {
-    return axios.get(getFeedUrl(feed.url), { timeout: responseTimeout })
-      .then((response) => {
-        const feedData = parseRss(response.data);
-        const newPosts = feedData.items.map((item) => ({ ...item, feedUrl: feed.url }));
-        const oldPosts = watchedState.posts.filter((post) => post.feedUrl === feed.url);
+  const promises = watchedState.feeds.map((feed) => axios.get(
+    getFeedUrl(feed.url),
+    { timeout: responseTimeout },
+  ).then((response) => {
+    const feedData = parseRss(response.data);
+    const newPosts = feedData.items.map((item) => ({ ...item, feedUrl: feed.url }));
+    const oldPosts = watchedState.posts.filter((post) => post.feedUrl === feed.url);
 
-        return _.differenceWith(newPosts, oldPosts, (a, b) => a.link === b.link);
-    });
-  });
+    return _.differenceWith(newPosts, oldPosts, (a, b) => a.link === b.link);
+  }));
+
   Promise.all(promises)
     .then((feedPosts) => {
       watchedState.posts.unshift(..._.flatten(feedPosts));
     })
     .finally(() => {
       setTimeout(() => checkNewPosts(watchedState), fetchingTimeout);
-    })
+    });
 };
 
 const initApp = () => {
@@ -130,7 +131,7 @@ const initApp = () => {
     };
     loadRss(watchedState, url);
   });
-}
+};
 
 export default () => {
   i18next.init({
