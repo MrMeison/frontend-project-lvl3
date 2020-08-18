@@ -12,6 +12,7 @@ export default (state, formElements) => onChange(state, (path) => {
       handleLoadingState(state, formElements);
       break;
     case 'feeds':
+    case 'posts':
       handleFeeds(state, formElements);
       break;
     default:

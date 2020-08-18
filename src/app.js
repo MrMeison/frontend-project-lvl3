@@ -9,6 +9,7 @@ import watch from './watchers/index.js';
 import resources from './locales/index.js';
 
 const responseTimeout = 3000;
+const fetchingTimeout = 3000;
 const proxyUrl = 'https://cors-anywhere.herokuapp.com';
 
 const getUrlValidationSchema = () => yup.string()
@@ -33,8 +34,8 @@ const loadRss = (watchedState, url) => {
     error: null,
     status: 'loading'
   };
-  const urlWithProxy = getFeedUrl(url);
-  return axios.get(urlWithProxy, { timeout: responseTimeout })
+
+  return axios.get(getFeedUrl(url), { timeout: responseTimeout })
     .then((response) => {
       const feedData = parseRss(response.data);
       const feed = { url, title: feedData.title };
@@ -61,6 +62,26 @@ const loadRss = (watchedState, url) => {
     });
 };
 
+const checkNewPosts = (watchedState) => {
+  const promises = watchedState.feeds.map((feed) => {
+    return axios.get(getFeedUrl(feed.url), { timeout: responseTimeout })
+      .then((response) => {
+        const feedData = parseRss(response.data);
+        const newPosts = feedData.items.map((item) => ({ ...item, feedUrl: feed.url }));
+        const oldPosts = watchedState.posts.filter((post) => post.feedUrl === feed.url);
+
+        return _.differenceWith(newPosts, oldPosts, (a, b) => a.link === b.link);
+    });
+  });
+  Promise.all(promises)
+    .then((feedPosts) => {
+      watchedState.posts.unshift(..._.flatten(feedPosts));
+    })
+    .finally(() => {
+      setTimeout(() => checkNewPosts(watchedState), fetchingTimeout);
+    })
+};
+
 const initApp = () => {
   const initState = {
     feeds: [],
@@ -85,6 +106,7 @@ const initApp = () => {
   };
 
   const watchedState = watch(initState, formElements);
+  setTimeout(() => checkNewPosts(watchedState), fetchingTimeout);
 
   formElements.form.addEventListener('submit', (evt) => {
     evt.preventDefault();
