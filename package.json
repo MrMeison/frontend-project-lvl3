@@ -23,6 +23,9 @@
   "devDependencies": {
     "@babel/core": "7.11.1",
     "@babel/preset-env": "7.11.0",
+    "@testing-library/dom": "7.22.2",
+    "@testing-library/jest-dom": "5.11.3",
+    "@testing-library/user-event": "12.1.1",
     "babel-jest": "26.3.0",
     "babel-loader": "8.1.0",
     "css-loader": "4.2.1",

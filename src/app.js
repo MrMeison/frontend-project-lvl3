@@ -1,5 +1,4 @@
 import 'bootstrap';
-import 'bootstrap/dist/css/bootstrap.min.css';
 import _ from 'lodash';
 import * as yup from 'yup';
 import axios from 'axios';
@@ -133,10 +132,8 @@ const initApp = () => {
   });
 };
 
-export default () => {
-  i18next.init({
-    fallbackLng: 'en',
-    load: 'currentOnly',
-    resources,
-  }).then(() => initApp());
-};
+export default () => i18next.init({
+  fallbackLng: 'en',
+  load: 'currentOnly',
+  resources,
+}).then(() => initApp());

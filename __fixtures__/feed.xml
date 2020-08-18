@@ -1,0 +1,159 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss xmlns:dc="http://purl.org/dc/elements/1.1/" xmlns:content="http://purl.org/rss/1.0/modules/content/" xmlns:atom="http://www.w3.org/2005/Atom" version="2.0">
+    <channel>
+        <title>
+            <![CDATA[Lorem ipsum feed for an interval of 30 seconds with 10 item(s)]]>
+        </title>
+        <description>
+            <![CDATA[This is a constantly updating lorem ipsum feed]]>
+        </description>
+        <link>http://example.com/</link>
+        <generator>RSS for Node</generator>
+        <lastBuildDate>Tue, 18 Aug 2020 21:16:34 GMT</lastBuildDate>
+        <pubDate>Tue, 18 Aug 2020 21:16:30 GMT</pubDate>
+        <copyright>
+            <![CDATA[Michael Bertolacci, licensed under a Creative Commons Attribution 3.0 Unported License.]]>
+        </copyright>
+        <ttl>1</ttl>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:16:30Z]]>
+            </title>
+            <description>
+                <![CDATA[Aliquip nisi consectetur pariatur qui amet sunt et est eu nisi minim ea est sint.]]>
+            </description>
+            <link>http://example.com/test/1597785390</link>
+            <guid isPermaLink="true">http://example.com/test/1597785390</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:16:30 GMT</pubDate>
+        </item>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:16:00Z]]>
+            </title>
+            <description>
+                <![CDATA[Lorem officia qui ullamco elit exercitation non tempor dolore ad et aute.]]>
+            </description>
+            <link>http://example.com/test/1597785360</link>
+            <guid isPermaLink="true">http://example.com/test/1597785360</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:16:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:15:30Z]]>
+            </title>
+            <description>
+                <![CDATA[Reprehenderit consectetur voluptate reprehenderit dolore mollit magna.]]>
+            </description>
+            <link>http://example.com/test/1597785330</link>
+            <guid isPermaLink="true">http://example.com/test/1597785330</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:15:30 GMT</pubDate>
+        </item>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:15:00Z]]>
+            </title>
+            <description>
+                <![CDATA[Eu proident culpa nostrud id.]]>
+            </description>
+            <link>http://example.com/test/1597785300</link>
+            <guid isPermaLink="true">http://example.com/test/1597785300</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:15:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:14:30Z]]>
+            </title>
+            <description>
+                <![CDATA[Deserunt duis cillum velit sit cillum occaecat exercitation nulla non eu.]]>
+            </description>
+            <link>http://example.com/test/1597785270</link>
+            <guid isPermaLink="true">http://example.com/test/1597785270</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:14:30 GMT</pubDate>
+        </item>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:14:00Z]]>
+            </title>
+            <description>
+                <![CDATA[Aliqua nostrud culpa elit ea consectetur mollit occaecat anim minim id consequat.]]>
+            </description>
+            <link>http://example.com/test/1597785240</link>
+            <guid isPermaLink="true">http://example.com/test/1597785240</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:14:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:13:30Z]]>
+            </title>
+            <description>
+                <![CDATA[Ex culpa elit ipsum dolore tempor.]]>
+            </description>
+            <link>http://example.com/test/1597785210</link>
+            <guid isPermaLink="true">http://example.com/test/1597785210</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:13:30 GMT</pubDate>
+        </item>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:13:00Z]]>
+            </title>
+            <description>
+                <![CDATA[Commodo nostrud voluptate ut in quis ipsum laborum ut.]]>
+            </description>
+            <link>http://example.com/test/1597785180</link>
+            <guid isPermaLink="true">http://example.com/test/1597785180</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:13:00 GMT</pubDate>
+        </item>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:12:30Z]]>
+            </title>
+            <description>
+                <![CDATA[Officia sint in laboris nostrud consectetur velit pariatur ex nisi incididunt mollit nisi occaecat.]]>
+            </description>
+            <link>http://example.com/test/1597785150</link>
+            <guid isPermaLink="true">http://example.com/test/1597785150</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:12:30 GMT</pubDate>
+        </item>
+        <item>
+            <title>
+                <![CDATA[Lorem ipsum 2020-08-18T21:12:00Z]]>
+            </title>
+            <description>
+                <![CDATA[Nulla incididunt adipisicing reprehenderit tempor.]]>
+            </description>
+            <link>http://example.com/test/1597785120</link>
+            <guid isPermaLink="true">http://example.com/test/1597785120</guid>
+            <dc:creator>
+                <![CDATA[John Smith]]>
+            </dc:creator>
+            <pubDate>Tue, 18 Aug 2020 21:12:00 GMT</pubDate>
+        </item>
+    </channel>
+</rss>
