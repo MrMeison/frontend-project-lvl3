@@ -23,7 +23,7 @@ const renderFeeds = (state, formElements) => {
     return fragment;
   });
 
-  feedsBox.innerHtml = '';
+  feedsBox.innerHTML = '';
   feedsBox.append(...content);
 };
 

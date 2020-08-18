@@ -8,7 +8,7 @@ export default (state, formElements) => onChange(state, (path) => {
     case 'form':
       handleForm(state, formElements);
       break;
-    case 'loadingProcess.status':
+    case 'loadingState':
       handleLoadingState(state, formElements);
       break;
     case 'feeds':

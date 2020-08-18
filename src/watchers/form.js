@@ -1,13 +1,13 @@
 const renderForm = (state, formElements) => {
   const { form: { valid, error } } = state;
-  const { input, feedback } = formElements;
+  const { input, feedbackBox } = formElements;
 
   if (valid) {
     input.classList.remove('is-invalid');
   } else {
     input.classList.add('is-invalid');
-    feedback.classList.add('text-danger');
-    feedback.textContent = error;
+    feedbackBox.classList.add('text-danger');
+    feedbackBox.textContent = error;
   }
 };
 

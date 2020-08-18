@@ -1,34 +1,42 @@
+import i18next from 'i18next';
+
 const toggleInputState = (input, disabled) => {
   input.disabled = disabled;
-  input.setAttribute('readonly', disabled);
+  if (disabled) {
+    input.setAttribute('readonly', 'readonly');
+  } else {
+    input.removeAttribute('readonly');
+  }
+  
 };
 
 const handleLoadingState = (state, formElements) => {
   const { loadingState } = state;
-  const { feedback, form, input } = formElements;
+  const { feedbackBox, form, input } = formElements;
 
   switch (loadingState.status) {
     case 'failed':
       toggleInputState(input, false);
-      feedback.classList.add('text-danger');
-      feedback.textContent = loadingState.error;
+      feedbackBox.classList.add('text-danger');
+      feedbackBox.textContent = loadingState.error;
       break;
     case 'idle':
       form.reset();
+      toggleInputState(input, false);
       input.focus();
-      feedback.classList.add('text-success');
-      feedback.textContent = 'Rss has been loaded';
+      feedbackBox.classList.add('text-success');
+      feedbackBox.textContent = i18next.t('loading.success');
       break;
     case 'loading':
       toggleInputState(input, true);
-      feedback.classList.remove('text-success');
-      feedback.classList.remove('text-danger');
-      feedback.textContent = '';
+      feedbackBox.classList.remove('text-success');
+      feedbackBox.classList.remove('text-danger');
+      feedbackBox.textContent = '';
       break;
     default:
       toggleInputState(input, true);
-      feedback.classList.add('text-danger');
-      feedback.textContent = 'Unknown error. Try again';
+      feedbackBox.classList.add('text-danger');
+      feedbackBox.textContent = i18next.t('loading.unknownError');
       throw new Error(`Unknown status: '${loadingState.status}'`);
   }
 };

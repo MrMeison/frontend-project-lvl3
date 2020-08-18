@@ -3,19 +3,23 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import _ from 'lodash';
 import * as yup from 'yup';
 import axios from 'axios';
+import i18next from 'i18next';
 import parseRss from './rss.js';
 import watch from './watchers/index.js';
+import resources from './locales/index.js';
 
 const responseTimeout = 3000;
 const proxyUrl = 'https://cors-anywhere.herokuapp.com';
 
-const urlValidationSchema = yup.string().url().required();
+const getUrlValidationSchema = () => yup.string()
+  .url(i18next.t('errors.invalidUrl'))
+  .required(i18next.t('errors.required'));
 
 const getFeedUrl = (url) => `${proxyUrl}/${url}`;
 
 const validateUrl = (url, feeds) => {
   const feedUrls = feeds.map((feed) => feed.url);
-  const validationSchema = urlValidationSchema.notOneOf(feedUrls, 'Rss feed already exists');
+  const validationSchema = getUrlValidationSchema().notOneOf(feedUrls, i18next.t('errors.exists'));
   try {
     validationSchema.validateSync(url);
     return null;
@@ -25,7 +29,10 @@ const validateUrl = (url, feeds) => {
 };
 
 const loadRss = (watchedState, url) => {
-  watchedState.loadingState.status = 'loading';
+  watchedState.loadingState = {
+    error: null,
+    status: 'loading'
+  };
   const urlWithProxy = getFeedUrl(url);
   return axios.get(urlWithProxy, { timeout: responseTimeout })
     .then((response) => {
@@ -46,7 +53,7 @@ const loadRss = (watchedState, url) => {
       };
     })
     .catch((e) => {
-      watchedState.loadingStateState = {
+      watchedState.loadingState = {
         error: e,
         status: 'failed',
       };
@@ -54,7 +61,7 @@ const loadRss = (watchedState, url) => {
     });
 };
 
-export default () => {
+const initApp = () => {
   const initState = {
     feeds: [],
     posts: [],
@@ -90,6 +97,8 @@ export default () => {
         valid: false,
         error,
       };
+
+      return;
     }
 
     watchedState.form = {
@@ -99,4 +108,12 @@ export default () => {
     };
     loadRss(watchedState, url);
   });
+}
+
+export default () => {
+  i18next.init({
+    fallbackLng: 'en',
+    load: 'currentOnly',
+    resources,
+  }).then(() => initApp());
 };
